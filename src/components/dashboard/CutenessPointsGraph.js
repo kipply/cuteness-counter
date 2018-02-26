@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Paper from 'material-ui/Paper';
 
 import { Line } from 'react-chartjs-2';
 
@@ -35,22 +36,24 @@ export default class CutenessPointsGraph extends Component {
   }
   render() {
     return (
-      <Line
-        data={this.cutenessPointsData}
-        width={100}
-        height={500}
-        options={{
-            maintainAspectRatio: false,
-            legend: {
-              display: false,
-            },
-            title: {
-              display: true,
-              text: 'Cuteness Points',
-              fontSize: 24,
-            },
-          }}
-      />
+      <Paper zDepth={1}>
+        <Line
+          data={this.cutenessPointsData}
+          width={100}
+          height={500}
+          options={{
+              maintainAspectRatio: false,
+              legend: {
+                display: false,
+              },
+              title: {
+                display: true,
+                text: 'Cuteness Points',
+                fontSize: 24,
+              },
+            }}
+        />
+      </Paper>
     );
   }
 }

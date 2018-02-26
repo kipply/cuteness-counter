@@ -28,6 +28,7 @@ class AuthButton extends Component {
     super(props);
     this.state = {
       signedIn: props.signedIn,
+      db: firebase.database(),
     };
   }
 
@@ -56,6 +57,15 @@ class AuthButton extends Component {
     firebase.auth().getRedirectResult().then((result) => {
       if (result.credential) {
         this.props.history.push('/dashboard');
+
+        const usersRef = this.state.db.ref('users/');
+        usersRef.child(result.user.uid).once('value', (snapshot) => {
+          const exists = (snapshot.val() !== null);
+          if (!exists) {
+            const currTime = new Date().getTime();
+            this.state.db.ref(`users/${result.user.uid}/points/${currTime}`).set(1500);
+          }
+        });
       }
     }).catch((error) => { logError(error); });
   }
@@ -78,10 +88,6 @@ class AuthButton extends Component {
 
 AuthButton.propTypes = {
   signedIn: PropTypes.bool.isRequired,
-  history: PropTypes.objectOf(String),
 };
 
-AuthButton.defaultProps = {
-  history: [],
-};
 export default withRouter(AuthButton);

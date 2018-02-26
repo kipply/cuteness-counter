@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
@@ -10,6 +11,8 @@ import CloseIcon from 'material-ui/svg-icons/navigation/close';
 import * as firebase from 'firebase';
 
 import AuthButton from './components/AuthButton';
+
+import './css/Header.css';
 
 class Header extends Component {
   constructor(props) {
@@ -55,7 +58,9 @@ class Header extends Component {
           <IconButton onClick={() => this.setState({ drawerOpen: !this.state.drawerOpen })}>
             <CloseIcon />
           </IconButton>
-          <MenuItem>Dashboard</MenuItem>
+          <Link to="/dashboard">
+            <MenuItem>Dashboard</MenuItem>
+          </Link>
           <MenuItem>Cuteness Evaluator</MenuItem>
         </Drawer>
       </div>
