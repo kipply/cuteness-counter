@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "users": {
+      "$userid": {
+        ".read": "auth.uid == $userid",
+        "points": {
+          "$time": {
+            ".read": true,
+            ".validate": "newData.isNumber() && $time <= now && $time > now - 30",
+            ".write": true,
+          }
+        }
+      }
+    }
+  }
+}
