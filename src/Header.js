@@ -61,7 +61,9 @@ class Header extends Component {
           <Link to="/dashboard">
             <MenuItem>Dashboard</MenuItem>
           </Link>
-          <MenuItem>Cuteness Evaluator</MenuItem>
+          <Link to="/profile">
+            <MenuItem>Profile</MenuItem>
+          </Link>
         </Drawer>
       </div>
     );
