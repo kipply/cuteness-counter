@@ -3,14 +3,33 @@
     "users": {
       "$userid": {
         ".read": "auth.uid == $userid",
-        "points": {
-          "$time": {
+
+        "point-history": {
+          "$item": {
             ".read": true,
-            ".validate": "newData.isNumber() && $time <= now && $time > now - 30",
+            ".validate": "newData.child('val').val() === 1500 && newData.child('timestamp').val() > (now - 5000) && newData.child('timestamp').isNumber()",
             ".write": true,
           }
+        },
+        "points": {
+          ".read": true,
+          ".validate": "newData.isNumber() && !data.exists()",
+          ".write": true,
+        },
+        "connoiseuring-history": {
+          "$time": {
+            ".read": true,
+            ".validate": "newData.child('val').val() === 0 && newData.child('timestamp').val() > (now - 5000) && newData.child('timestamp').isNumber()",
+            ".write": true,
+          }
+        },
+        "connoiseuring": {
+          ".read": true,
+          ".validate": "newData.isNumber() && !data.exists()",
+          ".write": true,
         }
       }
     }
+    
   }
 }
