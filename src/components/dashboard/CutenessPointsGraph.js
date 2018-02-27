@@ -36,10 +36,9 @@ export default class CutenessPointsGraph extends Component {
   }
   render() {
     return (
-      <Paper zDepth={1}>
+      <Paper zDepth={1} className="dashboard-tile">
         <Line
           data={this.cutenessPointsData}
-          width={100}
           height={500}
           options={{
               maintainAspectRatio: false,
