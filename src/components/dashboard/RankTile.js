@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 
-import * as firebase from 'firebase';
-
 export default class RankTile extends Component {
   constructor(props) {
     super(props);

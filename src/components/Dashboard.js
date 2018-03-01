@@ -26,6 +26,7 @@ class Dashboard extends Component {
     this.authListener = firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
         this.props.history.push('/');
+      } else {
         this.setState({ user });
       }
     });
@@ -47,13 +48,13 @@ class Dashboard extends Component {
             <Col xs={12} md={4}>
               <Row>
                 <Col xs={4} sm={12}>
-                  <GotoProfileTile user={this.state.user} />
+                  <GotoProfileTile />
                 </Col>
                 <Col xs={4} sm={12}>
                   <RankTile />
                 </Col>
                 <Col xs={4} sm={12}>
-                  <ShareTile />
+                  <ShareTile user={'' || this.state.user.uid} />
                 </Col>
               </Row>
             </Col>

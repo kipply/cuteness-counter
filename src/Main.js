@@ -14,7 +14,7 @@ class Main extends Component {
           <Route exact path='/' component={Home}/>
           <Route path='/dashboard' component={Dashboard}/>
           <Route path='/profile' component={Profile}/>
-          <Route path='/cuteness-rater' component={CutenessRater}/>
+          <Route path='/cuteness-rater/:uid' component={CutenessRater}/>
         </Switch>
       </main>
     );

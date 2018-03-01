@@ -13,4 +13,7 @@
   border-radius: 3px;
   padding: 5px;
   font-family: monospace;
+  height: 12px;
+  white-space:nowrap;
+  overflow-x: scroll;
 }

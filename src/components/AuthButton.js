@@ -56,8 +56,6 @@ class AuthButton extends Component {
 
     firebase.auth().getRedirectResult().then((result) => {
       if (result.credential) {
-        this.props.history.push('/dashboard');
-
         const usersRef = this.state.db.ref('users/');
         usersRef.child(result.user.uid).once('value', (snapshot) => {
           const exists = (snapshot.val() !== null);

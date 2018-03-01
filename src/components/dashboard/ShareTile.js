@@ -12,13 +12,13 @@ export default class ShareTile extends Component {
     super(props);
     this.state = {
       toastOpen: false,
-      thingId: '',
+      user: '',
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.thingId !== nextProps.thingId) { // Update state if necessary
-      this.setState({ thingId: nextProps.thingId });
+    if (this.state.user !== nextProps.user) { // Update state if necessary
+      this.setState({ user: nextProps.user });
     }
   }
 
@@ -28,11 +28,11 @@ export default class ShareTile extends Component {
         <h1>Share</h1>
         <p className="text-grey">Share your thing with to gain cuteness points!</p>
         <CopyToClipboard
-          text={`localhost:3000/#/visit?${this.state.thingId}`}
+          text={`localhost:3000/#/cuteness-rater/${this.state.user.uid}`}
           onCopy={() => this.setState({ toastOpen: true })}
         >
           <p className="share-tile-copy">
-            <Copy /> {`localhost:3000/#/visit?${this.state.thingId}`}
+            <Copy /> {`${process.env.REACT_APP_BASE_URL}/#/cuteness-rater/${this.state.user.uid}`}
           </p>
         </CopyToClipboard>
         <Snackbar
@@ -47,6 +47,10 @@ export default class ShareTile extends Component {
 }
 
 ShareTile.propTypes = {
-  thingId: PropTypes.string.isRequired,
+  user: PropTypes.object,
+};
+
+ShareTile.defaultProps = {
+  user: {},
 };
 
