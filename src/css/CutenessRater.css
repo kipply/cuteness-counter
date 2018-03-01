@@ -1,0 +1,13 @@
+.cuteness-rater {
+  padding: 25px;
+  text-align: center;
+}
+
+.cuteness-rater-container {
+  padding: 20px 25px;
+}
+
+.cuteness-rater h3 {
+  font-size: 36px;
+  font-weight: 300;
+}

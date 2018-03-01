@@ -7,3 +7,7 @@ body {
 .text-grey {
   color: #9E9E9E;
 }
+
+.text-center {
+  text-align: center;
+}

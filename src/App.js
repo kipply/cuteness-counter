@@ -15,6 +15,7 @@ class App extends Component {
       apiKey: 'AIzaSyDM3HMF0lwEFSxLPJva0dCajoEVBm7IRuY',
       authDomain: 'caroly-counter.firebaseapp.com',
       databaseURL: 'https://caroly-counter.firebaseio.com',
+      storageBucket: 'caroly-counter.appspot.com',
       projectId: 'caroly-counter',
     });
   }

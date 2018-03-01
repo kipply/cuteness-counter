@@ -6,30 +6,45 @@
 
         "point-history": {
           "$item": {
-            ".read": true,
+            ".read": "auth.uid == $userid",
             ".validate": "newData.child('val').val() === 1500 && newData.child('timestamp').val() > (now - 5000) && newData.child('timestamp').isNumber()",
-            ".write": true,
+            ".write": "auth.uid == $userid",
           }
         },
         "points": {
-          ".read": true,
+          ".read": "auth.uid == $userid",
           ".validate": "newData.isNumber() && !data.exists()",
-          ".write": true,
+          ".write": "auth.uid == $userid",
         },
         "connoiseuring-history": {
           "$time": {
-            ".read": true,
+            ".read": "auth.uid == $userid",
             ".validate": "newData.child('val').val() === 0 && newData.child('timestamp').val() > (now - 5000) && newData.child('timestamp').isNumber()",
-            ".write": true,
+            ".write": "auth.uid == $userid",
           }
         },
         "connoiseuring": {
-          ".read": true,
+          ".read": "auth.uid == $userid",
           ".validate": "newData.isNumber() && !data.exists()",
-          ".write": true,
-        }
+          ".write": "auth.uid == $userid",
+        },
+
+
+        "profile": {
+          ".read": true,
+          "name": {
+            ".validate": "newData.isString() && newData.val().length < 100",
+          },
+          "description": {
+            ".validate": "newData.isString()",
+          },
+          "image": {
+            ".validate": "newData.isString()",
+          },
+          ".write": "auth.uid == $userid"
+        },
       }
     }
-    
+
   }
 }

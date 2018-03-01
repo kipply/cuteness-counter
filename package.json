@@ -10,19 +10,20 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-ace": "^5.9.0",
+    "react-app-env": "^1.2.0",
     "react-chartjs-2": "^2.7.0",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.2.0",
     "react-icons": "^2.2.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0",
+    "react-scripts": "^1.1.0",
     "react-styled-flexboxgrid": "^2.2.0",
     "styled-components": "^3.1.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "react-app-env start",
+    "build": "react-app-env build",
+    "test": "react-app-env test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

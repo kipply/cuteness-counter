@@ -5,5 +5,8 @@
     "no-confusing-arrow": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "react/prop-types": [2, { ignore: ['history'] }]
+  },
+  "env": {
+    "browser": true
   }
 }
